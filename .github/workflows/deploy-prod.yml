@@ -1,0 +1,115 @@
+name: Landing — deploy prod
+
+# Builds the released tag of xorgate-landing and syncs the static export (out/)
+# to the production landing bucket (www.xorgate.io).
+#
+# One-time setup (shared with deploy-dev.yml):
+#   AWS — buckets www.xorgate.io (prod) and www-dev.xorgate.io (dev) are
+#     created outside this repo, as are the CloudFront distributions and DNS in
+#     front of them (invalidated by hand after a deploy). These workflows only
+#     sync objects.
+#   AWS — IAM machine user with an inline policy allowing, on BOTH
+#     www.xorgate.io and www-dev.xorgate.io:
+#       s3:PutObject, s3:DeleteObject   (resource: arn:aws:s3:::<bucket>/*)
+#       s3:ListBucket                   (resource: arn:aws:s3:::<bucket>)
+#     Same shape as xorgate-docs' policy, just two more buckets. No CloudFront
+#     permissions are needed, since invalidation is manual.
+#   GitHub repo SECRETS:  AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
+#   GitHub repo VARIABLE (optional): AWS_REGION  (defaults to us-east-1)
+#   GitHub ENVIRONMENTS "development" + "production", each with Variables:
+#     NEXT_PUBLIC_SITE_URL      public origin of this site: production
+#                               https://www.xorgate.io, development
+#                               https://www-dev.xorgate.io
+#     NEXT_PUBLIC_CONSOLE_URL   console origin CTAs point at: production
+#                               https://console.xorgate.io, development
+#                               https://console-dev.xorgate.io
+#     NEXT_PUBLIC_DOCS_URL      docs origin: https://docs.xorgate.io /
+#                               https://docs-dev.xorgate.io
+#     LANDING_BUCKET            optional. Only set it to move a deploy off the
+#                               default bucket baked into each workflow.
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build (must already exist)"
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: landing-deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      # Override with a `LANDING_BUCKET` environment variable if the target moves.
+      BUCKET: ${{ vars.LANDING_BUCKET || 'www.xorgate.io' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.release.tag_name || github.event.inputs.tag }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Write build env (.env)
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          NEXT_PUBLIC_CONSOLE_URL: ${{ vars.NEXT_PUBLIC_CONSOLE_URL }}
+          NEXT_PUBLIC_DOCS_URL: ${{ vars.NEXT_PUBLIC_DOCS_URL }}
+        run: |
+          cat > .env <<EOF
+          NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+          NEXT_PUBLIC_CONSOLE_URL=${NEXT_PUBLIC_CONSOLE_URL}
+          NEXT_PUBLIC_DOCS_URL=${NEXT_PUBLIC_DOCS_URL}
+          EOF
+
+      - name: Build
+        run: npm run build
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION || 'us-east-1' }}
+
+      - name: Sync out/ to S3
+        run: |
+          # Only _next/static/** is content-hashed. Every HTML page and the
+          # icons/OG images are unhashed and must revalidate. --delete filters
+          # apply to both sides, so the exclude below also protects the hashed
+          # assets from being pruned by the first pass.
+          aws s3 sync out/ "s3://$BUCKET" \
+            --delete \
+            --cache-control "no-cache" \
+            --exclude "_next/static/*"
+          aws s3 sync out/_next/static/ "s3://$BUCKET/_next/static/" \
+            --delete \
+            --cache-control "public,max-age=31536000,immutable"
+
+      - name: Summary
+        if: always()
+        env:
+          REF: ${{ github.event.release.tag_name || github.event.inputs.tag }}
+        run: |
+          {
+            echo "## Landing prod deploy"
+            echo ""
+            echo "- Tag: \`$REF\`"
+            echo "- Bucket: \`s3://$BUCKET\`"
+            echo ""
+            echo "> Invalidate the CloudFront distribution manually to publish this build."
+          } >> "$GITHUB_STEP_SUMMARY"
