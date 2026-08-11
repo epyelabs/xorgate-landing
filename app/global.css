@@ -8,6 +8,7 @@
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: "Space Grotesk Variable", sans-serif;
+  --color-shell: var(--shell);
   --color-brand: var(--brand);
   --color-brand-strong: var(--brand-strong);
   --color-brand-wash: var(--brand-wash);
@@ -42,7 +43,12 @@
    visual sync with the console. The brand-* tokens are landing-only: the one
    accent (design system: plans/xorgate-landing-page/design.md). */
 :root {
-  --background: oklch(1 0 0);
+  /* Two-surface scheme: the cream (from #FDF5E6, chroma eased slightly)
+     paints the shell (navbar + footer), the main content sits on a much
+     lighter warm white, and cards stay pure white. Neutrals are warmed to
+     the same hue so they don't read gray on the warm grounds. */
+  --shell: oklch(0.972 0.014 85);
+  --background: oklch(0.985 0.007 85);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -50,26 +56,29 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: oklch(0.945 0.012 85);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
+  --muted: oklch(0.945 0.012 85);
+  --muted-foreground: oklch(0.5 0.01 85);
+  --accent: oklch(0.945 0.012 85);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
+  --border: oklch(0.902 0.014 85);
+  --input: oklch(0.902 0.014 85);
   --ring: oklch(0.708 0 0);
   --radius: 0.625rem;
   /* Brand orange #FF4500: fills and glows only; never small text on white. */
   --brand: oklch(0.6641 0.2454 34.85);
   /* Deepened orange-red for text-bearing uses on light backgrounds (AA). */
   --brand-strong: oklch(0.55 0.21 35);
-  /* Barely-tinted wash, at most one section per page. */
-  --brand-wash: oklch(0.975 0.013 35);
+  /* Barely-tinted wash, at most one section per page. Warmer/pinker than the
+     cream background so the CTA band still reads as its own surface. */
+  --brand-wash: oklch(0.955 0.025 45);
 }
 
 .dark {
+  /* Shell mirrors the light structure: slightly lifted from the page ground. */
+  --shell: oklch(0.205 0 0);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

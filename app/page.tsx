@@ -1,34 +1,29 @@
 import { Reveal } from "@/components/reveal"
-import { CodeMoment } from "@/components/home/code-moment"
-import { ConsoleStrip } from "@/components/home/console-strip"
 import { CtaBand } from "@/components/home/cta-band"
-import { FieldProven } from "@/components/home/field-proven"
 import { HardwareTeaser } from "@/components/home/hardware-teaser"
-import { Hero } from "@/components/home/hero"
-import { Pillars } from "@/components/home/pillars"
+import { HeroVideo } from "@/components/home/hero-video"
+import { Quickstart } from "@/components/home/quickstart"
 import { UseCaseTeaser } from "@/components/home/use-case-teaser"
+import { Workflows } from "@/components/home/workflows"
 
+// Home tells the developer journey in one scroll: see it (hero), start it
+// (quickstart), make it think (workflows), what others build (use cases),
+// the hardware to buy (Daedalus), go (CTA).
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <HeroVideo />
       <Reveal>
-        <Pillars />
+        <Quickstart />
       </Reveal>
       <Reveal>
-        <CodeMoment />
-      </Reveal>
-      <Reveal>
-        <FieldProven />
-      </Reveal>
-      <Reveal>
-        <ConsoleStrip />
-      </Reveal>
-      <Reveal>
-        <HardwareTeaser />
+        <Workflows />
       </Reveal>
       <Reveal>
         <UseCaseTeaser />
+      </Reveal>
+      <Reveal>
+        <HardwareTeaser />
       </Reveal>
       <CtaBand />
     </>

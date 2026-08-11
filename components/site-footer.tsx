@@ -1,4 +1,6 @@
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { LinkedinIcon, YoutubeIcon } from "@/components/social-icons"
 import { XorgateLogo } from "@/components/xorgate-logo"
 import { consoleUrl, contactEmail, docsUrl, siteTagline } from "@/lib/site"
 
@@ -35,7 +37,7 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t">
+    <footer className="border-t bg-shell">
       <div className="mx-auto w-full max-w-6xl px-6 py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           <div className="flex max-w-xs flex-col gap-3">
@@ -76,9 +78,21 @@ export function SiteFooter() {
             ))}
           </div>
         </div>
-        <p className="mt-12 text-sm text-muted-foreground">
-          © {new Date().getFullYear()} EPYE Labs. All rights reserved.
-        </p>
+        <div className="mt-12 flex flex-wrap items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} EPYE Labs. All rights reserved.
+          </p>
+          {/* Placement only for now; wire up hrefs once the profiles exist.
+              GitHub lives in the top navbar. */}
+          <div className="flex items-center gap-1">
+            <Button variant="ghost" size="icon" aria-label="LinkedIn">
+              <LinkedinIcon />
+            </Button>
+            <Button variant="ghost" size="icon" aria-label="YouTube">
+              <YoutubeIcon />
+            </Button>
+          </div>
+        </div>
       </div>
     </footer>
   )

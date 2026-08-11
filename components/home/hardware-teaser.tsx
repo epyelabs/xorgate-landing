@@ -8,7 +8,7 @@ import { Section, SectionHeading } from "@/components/section"
 export function HardwareTeaser() {
   return (
     <Section className="border-t">
-      <div className="grid items-center gap-12 md:grid-cols-2">
+      <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div>
           <SectionHeading
             eyebrow="Hardware"
@@ -16,7 +16,7 @@ export function HardwareTeaser() {
             intro="A developer-leaning carrier board for the Raspberry Pi CM5: dual cameras in a stereo arrangement, cellular and GNSS, an IMU, and a standard 40-pin header. Shipping as a dev kit with everything you need to unbox, provision, and stream."
             className="mb-6"
           />
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <Button variant="outline" size="xl" asChild>
               <Link href="/hardware">
                 Explore the hardware
