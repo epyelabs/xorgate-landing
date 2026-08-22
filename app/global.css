@@ -10,6 +10,7 @@
   --font-sans: "Space Grotesk Variable", sans-serif;
   --color-shell: var(--shell);
   --color-brand: var(--brand);
+  --color-brand-logo: var(--brand-logo);
   --color-brand-strong: var(--brand-strong);
   --color-brand-wash: var(--brand-wash);
   --color-ring: var(--ring);
@@ -67,6 +68,9 @@
   --input: oklch(0.902 0.014 85);
   --ring: oklch(0.708 0 0);
   --radius: 0.625rem;
+  /* The logo mark's own orange. Kept apart from --brand so the wordmark
+     matches the source artwork exactly, in both themes. */
+  --brand-logo: #ff3a00;
   /* Brand orange #FF4500: fills and glows only; never small text on white. */
   --brand: oklch(0.6641 0.2454 34.85);
   /* Deepened orange-red for text-bearing uses on light backgrounds (AA). */

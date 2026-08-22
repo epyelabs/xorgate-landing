@@ -24,13 +24,10 @@ export function SiteHeader() {
           <div className="flex h-14 items-center px-5">
             <Link
               href="/"
-              className="flex items-center gap-2"
+              className="flex items-center"
               onClick={() => setOpen(false)}
             >
-              <XorgateLogo className="size-6 text-brand" />
-              <span className="text-lg font-medium tracking-tight">
-                xorgate
-              </span>
+              <XorgateLogo className="h-6 w-auto text-brand-logo" />
             </Link>
 
             <nav className="ml-auto hidden items-center gap-8 lg:flex">
@@ -53,12 +50,6 @@ export function SiteHeader() {
                   </Link>
                 )
               )}
-              <a
-                href={consoleUrl}
-                className="text-base text-foreground/80 transition-colors hover:text-foreground"
-              >
-                Console
-              </a>
             </nav>
 
             <div className="ml-auto flex items-center gap-1.5 lg:ml-10">
