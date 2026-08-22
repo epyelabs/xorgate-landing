@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { LinkedinIcon, YoutubeIcon } from "@/components/social-icons"
+import { AccentField } from "@/components/section"
 import { XorgateWordmark } from "@/components/xorgate-logo"
 import { consoleUrl, contactEmail, docsUrl, siteTagline } from "@/lib/site"
 
@@ -37,7 +38,8 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t bg-shell">
+    <footer className="relative isolate overflow-hidden border-t bg-shell">
+      <AccentField variant="grid-full" />
       <div className="mx-auto w-full max-w-content px-6 py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           <div className="flex max-w-xs flex-col gap-3">

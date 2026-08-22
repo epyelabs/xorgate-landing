@@ -39,12 +39,13 @@ export default function BlogPage() {
   return (
     <>
       <PageHero
+        accent="dots-tr"
         eyebrow="Blog"
         title="Articles and updates"
         intro="Nothing published yet. Here's what we're writing about first."
       />
       <Reveal>
-        <Section className="pt-0 md:pt-0">
+        <Section className="pt-0 md:pt-0" accent="hatch-bl">
           <div className="grid gap-4 md:grid-cols-3">
             {upcoming.map((post) => (
               <article key={post.title} className="flex flex-col gap-3">

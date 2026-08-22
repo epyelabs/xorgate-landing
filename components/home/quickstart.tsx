@@ -262,7 +262,7 @@ const steps: QuickstartStep[] = [
 
 export function Quickstart() {
   return (
-    <Section>
+    <Section accent="dots-tr">
       <SectionHeading
         title="From bench to edge in minutes"
         intro="No firmware to write, no infrastructure to stand up. One command on the device and the platform takes it from there."

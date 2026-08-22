@@ -24,7 +24,7 @@ const features: { icon: LucideIcon; title: string; body: string }[] = [
 
 export function Workflows() {
   return (
-    <Section className="border-t">
+    <Section className="border-t" accent="hatch-tr">
       <SectionHeading
         title="Your data is already here. Now make it think."
         intro="Video, GPS, motion, signal — it all lands in Xorgate. Point a no-code workflow at it and turn raw streams into detections, alerts, and answers."

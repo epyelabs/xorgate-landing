@@ -178,6 +178,7 @@ export default function PricingPage() {
   return (
     <>
       <PageHero
+        accent="dots-tr"
         eyebrow="Pricing"
         title="Simple plans for every fleet size"
         intro="From a single prototype on your desk to a production fleet in the field. Early access pricing: numbers may change before general availability."
@@ -239,7 +240,7 @@ export default function PricingPage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t">
+        <Section className="border-t" accent="hatch-bl">
           <SectionHeading eyebrow="Details" title="Compare plans" />
           <div className="overflow-x-auto rounded-xl border">
             <Table>
@@ -271,7 +272,7 @@ export default function PricingPage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t">
+        <Section className="border-t" accent="dots-tr">
           <SectionHeading eyebrow="Questions" title="Pricing FAQ" />
           <Accordion type="single" collapsible className="max-w-2xl">
             {faqs.map((faq) => (

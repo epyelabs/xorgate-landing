@@ -87,12 +87,13 @@ export default function UseCasesPage() {
   return (
     <>
       <PageHero
+        accent="dots-tr"
         eyebrow="Use Cases"
         title="What people build on Xorgate"
         intro="Stories of sensor-driven systems on one platform: the same agent, the same APIs, the same workflows, pointed at very different problems."
       />
       <Reveal>
-        <Section className="pt-0 md:pt-0">
+        <Section className="pt-0 md:pt-0" accent="hatch-bl">
           <div className="grid gap-4 md:grid-cols-2">
             {stories.map((story) => (
               <article

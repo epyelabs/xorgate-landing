@@ -7,7 +7,7 @@ import { Section, SectionHeading } from "@/components/section"
 
 export function HardwareTeaser() {
   return (
-    <Section className="border-t">
+    <Section className="border-t" accent="hatch-bl">
       <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div>
           <SectionHeading

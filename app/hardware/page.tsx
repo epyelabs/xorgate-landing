@@ -84,6 +84,7 @@ export default function HardwarePage() {
   return (
     <>
       <PageHero
+        accent="dots-tr"
         eyebrow="Hardware"
         title="Daedalus Dev Kit"
         intro="A developer-leaning carrier board for the Raspberry Pi CM5, packaged with everything you need to unbox, provision, and stream. Easy to extend, easy to service, and friendly to the standard Raspberry Pi ecosystem."
@@ -113,7 +114,7 @@ export default function HardwarePage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t">
+        <Section className="border-t" accent="hatch-bl">
           <SectionHeading
             eyebrow="In the box"
             title="Unbox, provision, stream"
@@ -137,7 +138,7 @@ export default function HardwarePage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t">
+        <Section className="border-t" accent="dots-tr">
           <SectionHeading
             eyebrow="Enterprise"
             title="Proven in the field, customized for your program"
@@ -160,7 +161,7 @@ export default function HardwarePage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t">
+        <Section className="border-t" accent="hatch-bl">
           <SectionHeading eyebrow="Specs" title="Daedalus 1.0 at a glance" />
           <SpecTable columns={["Daedalus 1.0"]} rows={specRows} />
           <p className="mt-4 text-sm text-muted-foreground">
@@ -171,7 +172,7 @@ export default function HardwarePage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t">
+        <Section className="border-t" accent="dots-tr">
           <SectionHeading
             eyebrow="Roadmap"
             title="More boards on the way"

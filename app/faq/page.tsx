@@ -64,12 +64,13 @@ export default function FaqPage() {
   return (
     <>
       <PageHero
+        accent="dots-tr"
         eyebrow="FAQ"
         title="Frequently asked questions"
         intro="The short answers. The documentation has the long ones."
       />
       <Reveal>
-        <Section className="pt-0 md:pt-0">
+        <Section className="pt-0 md:pt-0" accent="hatch-bl">
           <Accordion type="single" collapsible className="max-w-2xl">
             {faqs.map((faq) => (
               <AccordionItem key={faq.question} value={faq.question}>
