@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { LinkedinIcon, YoutubeIcon } from "@/components/social-icons"
-import { XorgateLogo } from "@/components/xorgate-logo"
+import { XorgateWordmark } from "@/components/xorgate-logo"
 import { consoleUrl, contactEmail, docsUrl, siteTagline } from "@/lib/site"
 
 const columns = [
@@ -41,12 +41,7 @@ export function SiteFooter() {
       <div className="mx-auto w-full max-w-content px-6 py-16">
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           <div className="flex max-w-xs flex-col gap-3">
-            <div className="flex items-center gap-2">
-              <XorgateLogo className="h-5 w-auto text-brand" />
-              <span className="text-base font-medium tracking-tight">
-                xorgate
-              </span>
-            </div>
+            <XorgateWordmark className="h-7 w-auto text-brand" />
             <p className="text-sm text-muted-foreground">{siteTagline}</p>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
