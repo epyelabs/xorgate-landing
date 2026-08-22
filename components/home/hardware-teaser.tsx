@@ -11,7 +11,6 @@ export function HardwareTeaser() {
       <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div>
           <SectionHeading
-            eyebrow="Hardware"
             title="Meet Daedalus"
             intro="A developer-leaning carrier board for the Raspberry Pi CM5: dual cameras in a stereo arrangement, cellular and GNSS, an IMU, and a standard 40-pin header. Shipping as a dev kit with everything you need to unbox, provision, and stream."
             className="mb-6"

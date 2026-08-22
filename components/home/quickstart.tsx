@@ -1,7 +1,7 @@
 import type { ReactNode } from "react"
 import Link from "next/link"
-import { RefreshCw, Satellite, WifiOff } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { Section, SectionHeading } from "@/components/section"
 import { TerminalBlock } from "@/components/terminal-block"
 import { docsUrl } from "@/lib/site"
@@ -15,16 +15,16 @@ const steps: { title: string; body: ReactNode }[] = [
     body: "Order the Daedalus Dev Kit, or use a Raspberry Pi you already own. Any Pi 5 works; it doesn't need to be a Compute Module.",
   },
   {
-    title: "Assemble and power up",
-    body: "Seat the compute module, mount the cameras, insert the SIM, plug in USB-C. No soldering, no toolchains.",
-  },
-  {
     title: "Claim it from the console",
     body: "Provision a device in the console and copy the one-line install command. The device certifies itself and joins your fleet.",
   },
   {
     title: "Watch it live",
-    body: "Open the device's Active Streams tab: live video over WebRTC and telemetry at one hertz, seconds after boot.",
+    body: "Open the device's Active Streams tab: live video over WebRTC and telemetry via WebSockets, seconds after boot.",
+  },
+  {
+    title: "Attach AI Workflows",
+    body: "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC.",
   },
   {
     title: "Build your own thing",
@@ -44,18 +44,11 @@ const steps: { title: string; body: ReactNode }[] = [
   },
 ]
 
-const proofs: { icon: LucideIcon; text: string }[] = [
-  { icon: WifiOff, text: "Records through dead zones, uploads on reconnect" },
-  { icon: Satellite, text: "Assisted GPS: cold start to fix in about 90 s" },
-  { icon: RefreshCw, text: "Cellular recovers on its own, no truck rolls" },
-]
-
 export function Quickstart() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="Quickstart"
-        title="From unboxing to live stream"
+        title="From bench to edge in minutes"
         intro="No firmware to write, no infrastructure to stand up. One command on the device and the platform takes it from there."
       />
       {/* Explicit grid-cols-1: the implicit mobile track is `auto` and would
@@ -100,19 +93,13 @@ export function Quickstart() {
           ))}
         </ol>
       </div>
-      <div className="mt-14 flex flex-col gap-4 border-t pt-8 sm:flex-row sm:gap-10">
-        {proofs.map((proof) => (
-          <p
-            key={proof.text}
-            className="flex items-center gap-2 text-sm text-muted-foreground"
-          >
-            <proof.icon
-              className="size-4 shrink-0 text-brand-strong"
-              strokeWidth={1.5}
-            />
-            {proof.text}
-          </p>
-        ))}
+      <div className="mt-20 flex justify-center">
+        <Button variant="outline" size="xl" asChild>
+          <a href={docsUrl}>
+            See how it works
+            <ArrowRight data-icon="inline-end" />
+          </a>
+        </Button>
       </div>
     </Section>
   )

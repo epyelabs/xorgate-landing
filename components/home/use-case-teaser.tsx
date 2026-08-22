@@ -26,10 +26,7 @@ const cases: { icon: LucideIcon; title: string; body: string }[] = [
 export function UseCaseTeaser() {
   return (
     <Section className="border-t">
-      <SectionHeading
-        eyebrow="Use Cases"
-        title="What people build on Xorgate"
-      />
+      <SectionHeading title="What people build on Xorgate" />
       <div className="grid gap-4 md:grid-cols-3">
         {cases.map((useCase) => (
           <Card key={useCase.title}>

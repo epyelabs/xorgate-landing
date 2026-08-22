@@ -11,7 +11,10 @@ export function Section({
   ...props
 }: React.ComponentProps<"section">) {
   return (
-    <section className={cn("py-24 md:py-32", className)} {...props}>
+    <section
+      className={cn("pt-16 pb-24 md:pt-20 md:pb-32", className)}
+      {...props}
+    >
       <div className="mx-auto w-full max-w-content px-6">{children}</div>
     </section>
   )
@@ -35,7 +38,7 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <h2 className="text-3xl font-medium tracking-tight text-balance md:text-4xl">
+      <h2 className="text-4xl font-medium tracking-tight text-balance md:text-5xl">
         {title}
       </h2>
       {intro ? (

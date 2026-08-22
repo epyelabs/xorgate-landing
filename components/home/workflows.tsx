@@ -49,7 +49,6 @@ export function Workflows() {
   return (
     <Section className="border-t">
       <SectionHeading
-        eyebrow="Workflows"
         title="Your data is already here. Now make it think."
         intro="Everything a device sees and senses already lands in Xorgate: video, GPS, motion, signal. Point a no-code workflow at it and turn raw streams into detections, alerts, and answers, without standing up an ML pipeline."
       />
