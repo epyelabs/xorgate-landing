@@ -3,7 +3,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { siteDescription, siteName, siteTagline, siteUrl } from "@/lib/site"
+import { Figtree } from "next/font/google"
+import { cn } from "@/lib/utils"
 import "./global.css"
+
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -20,7 +24,11 @@ const themeInitScript = `(function(){try{var t=localStorage.getItem("theme");var
 
 export default function Layout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-sans", figtree.variable)}
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
