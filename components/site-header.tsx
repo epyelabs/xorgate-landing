@@ -30,7 +30,7 @@ export function SiteHeader() {
               <XorgateLogo className="h-6 w-auto text-brand" />
             </Link>
 
-            <nav className="ml-auto hidden items-center gap-8 lg:flex">
+            <nav className="ml-auto hidden items-center gap-10 lg:flex">
               {nav.map((item) =>
                 "external" in item && item.external ? (
                   <a
@@ -52,7 +52,7 @@ export function SiteHeader() {
               )}
             </nav>
 
-            <div className="ml-auto flex items-center gap-1.5 lg:ml-10">
+            <div className="ml-auto flex items-center gap-1.5 lg:ml-12">
               <Button
                 variant="signal"
                 className="h-9 rounded-full px-4 text-sm max-sm:h-8 max-sm:px-3 max-sm:text-xs"

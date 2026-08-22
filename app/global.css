@@ -6,8 +6,9 @@
 
 @theme inline {
   /* The one content measure. Section, page hero, navbar card, CTA band and
-     footer all read from this so their edges stay flush with each other. */
-  --container-content: 80rem;
+     footer all read from this so their edges stay flush with each other.
+     84rem still leaves the 1.5rem gutter breathing room on a 1440 laptop. */
+  --container-content: 84rem;
   /* One typeface for the whole site: Figtree, loaded by next/font in
      layout.tsx, which sets --font-sans on <html> (self-hosted at build time;
      no runtime Google request). Headings alias the same family on purpose -

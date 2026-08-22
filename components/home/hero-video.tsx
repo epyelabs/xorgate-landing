@@ -22,7 +22,7 @@ export function HeroVideo() {
         aria-hidden
       />
       <div aria-hidden className="absolute inset-0 bg-black/45" />
-      <div className="relative mx-auto flex w-full max-w-content flex-col items-start px-6 pt-24 pb-14 text-left">
+      <div className="relative mx-auto flex w-full max-w-content flex-col items-start px-6 pt-24 pb-8 text-left">
         {/* <TypingHeadline
           phrases={["Sense the world.", "Stream it live.", "Make it think."]}
           className="text-[clamp(2rem,7vw,4.5rem)] font-medium tracking-tight text-white"
@@ -30,7 +30,7 @@ export function HeroVideo() {
         <p className="mt-5 max-w-xl text-base text-neutral-200 md:text-lg">
           Xorgate is an open-source platform for Physical AI and Edge IoT.
         </p>
-        <div className="mt-8 flex w-full max-w-xs flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:justify-start">
+        <div className="mt-6 flex w-full max-w-xs flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:justify-start">
           <Button variant="brand" size="xl" asChild>
             <a href={`${consoleUrl}/signup`}>
               Try Cloud Console
