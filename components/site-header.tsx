@@ -17,9 +17,9 @@ export function SiteHeader() {
   const [open, setOpen] = React.useState(false)
 
   return (
-    // Card edges line up with the section content width (max-w-6xl + px-6).
+    // Card edges line up with the section content width (max-w-content + px-6).
     <header className="fixed inset-x-0 top-4 z-50">
-      <div className="mx-auto w-full max-w-6xl px-6">
+      <div className="mx-auto w-full max-w-content px-6">
         <div className="rounded-xl border bg-shell/90 shadow-sm backdrop-blur">
           <div className="flex h-14 items-center px-5">
             <Link

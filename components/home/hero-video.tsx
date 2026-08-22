@@ -4,12 +4,13 @@ import { Button } from "@/components/ui/button"
 import { TypingHeadline } from "@/components/typing-headline"
 import { consoleUrl } from "@/lib/site"
 
-// Full-screen video hero, content mid-center, typewriter headline. The
+// Video hero at 78svh, content mid-center, typewriter headline. Short of a
+// full viewport on purpose, so the next section peeks above the fold. The
 // floating navbar overlays this section (it is fixed, not in flow). The clip
 // is a temporary stand-in (see plan docs).
 export function HeroVideo() {
   return (
-    <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-neutral-950">
+    <section className="relative flex min-h-[78svh] items-center justify-center overflow-hidden bg-neutral-950">
       <video
         className="absolute inset-0 size-full object-cover motion-reduce:hidden"
         src="/hero-loop.mp4"
@@ -21,7 +22,7 @@ export function HeroVideo() {
         aria-hidden
       />
       <div aria-hidden className="absolute inset-0 bg-black/45" />
-      <div className="relative mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-24 text-center">
+      <div className="relative mx-auto flex w-full max-w-content flex-col items-center px-6 py-24 text-center">
         <TypingHeadline
           phrases={["Sense the world.", "Stream it live.", "Make it think."]}
           className="text-[clamp(2rem,7vw,4.5rem)] font-medium tracking-tight text-white"

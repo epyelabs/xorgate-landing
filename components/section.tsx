@@ -12,7 +12,7 @@ export function Section({
 }: React.ComponentProps<"section">) {
   return (
     <section className={cn("py-24 md:py-32", className)} {...props}>
-      <div className="mx-auto w-full max-w-6xl px-6">{children}</div>
+      <div className="mx-auto w-full max-w-content px-6">{children}</div>
     </section>
   )
 }

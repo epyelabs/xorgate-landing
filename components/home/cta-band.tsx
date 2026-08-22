@@ -5,7 +5,7 @@ import { consoleUrl, docsUrl } from "@/lib/site"
 export function CtaBand() {
   return (
     <section className="border-t bg-brand-wash py-24 md:py-32">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-6 text-center">
+      <div className="mx-auto flex w-full max-w-content flex-col items-center gap-6 px-6 text-center">
         <h2 className="text-3xl font-medium tracking-tight text-balance md:text-4xl">
           Start building today
         </h2>

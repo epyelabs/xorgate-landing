@@ -6,6 +6,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* The one content measure. Section, page hero, navbar card, CTA band and
+     footer all read from this so their edges stay flush with each other. */
+  --container-content: 80rem;
   --font-heading: var(--font-sans);
   --font-sans: "Space Grotesk Variable", sans-serif;
   --color-shell: var(--shell);

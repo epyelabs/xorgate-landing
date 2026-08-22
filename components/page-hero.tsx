@@ -18,7 +18,7 @@ export function PageHero({
 }) {
   return (
     <section className={cn("pt-24 pb-16 md:pt-32", className)}>
-      <div className="mx-auto flex w-full max-w-6xl flex-col gap-4 px-6">
+      <div className="mx-auto flex w-full max-w-content flex-col gap-4 px-6">
         {eyebrow ? (
           <p className="text-sm font-medium tracking-widest text-brand-strong uppercase">
             {eyebrow}
