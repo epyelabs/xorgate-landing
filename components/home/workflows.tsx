@@ -1,31 +1,8 @@
-import { ArrowRight, FlaskConical, GitBranch, Zap } from "lucide-react"
+import Image from "next/image"
+import { FlaskConical, GitBranch, Zap } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { Section, SectionHeading } from "@/components/section"
-
-// Node ids are the real catalog ids from the workflow engine; the two lanes
-// mirror pipelines you can actually build in the editor today.
-const lanes: { label: string; nodes: string[] }[] = [
-  {
-    label: "Vision",
-    nodes: [
-      "source.video",
-      "video.decode_sample",
-      "model.object_detection",
-      "logic.detection_gate",
-      "output.event",
-    ],
-  },
-  {
-    label: "Telemetry",
-    nodes: [
-      "source.telemetry",
-      "telemetry.kalman",
-      "telemetry.geofence",
-      "logic.threshold",
-      "output.event",
-    ],
-  },
-]
+import wfScreen from "@/public/wf-screen.png"
 
 const features: { icon: LucideIcon; title: string; body: string }[] = [
   {
@@ -50,29 +27,23 @@ export function Workflows() {
     <Section className="border-t">
       <SectionHeading
         title="Your data is already here. Now make it think."
-        intro="Everything a device sees and senses already lands in Xorgate: video, GPS, motion, signal. Point a no-code workflow at it and turn raw streams into detections, alerts, and answers, without standing up an ML pipeline."
+        intro="Video, GPS, motion, signal — it all lands in Xorgate. Point a no-code workflow at it and turn raw streams into detections, alerts, and answers."
       />
-      <div className="mb-12 flex flex-col gap-4 overflow-x-auto rounded-xl border bg-muted/40 p-6">
-        {lanes.map((lane) => (
-          <div key={lane.label} className="flex items-center gap-3">
-            <span className="w-20 shrink-0 text-sm font-medium tracking-widest text-brand-blue uppercase">
-              {lane.label}
-            </span>
-            <div className="flex items-center gap-2">
-              {lane.nodes.map((node, index) => (
-                <div key={node} className="flex items-center gap-2">
-                  {index > 0 ? (
-                    <ArrowRight className="size-3.5 shrink-0 text-brand-blue/60" />
-                  ) : null}
-                  <code className="rounded-lg border bg-background px-3 py-2 font-mono text-xs whitespace-nowrap">
-                    {node}
-                  </code>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Real editor screenshot (content.md shot list #5): a person-detection
+          pipeline on the canvas with its simulation trace alongside. */}
+      <figure className="mb-12">
+        <div className="overflow-hidden rounded-xl border">
+          <Image
+            src={wfScreen}
+            alt="The Xorgate workflow editor: a person-detection pipeline of catalog nodes on the canvas, with the node palette on the left and a simulation run trace on the right"
+            sizes="(min-width: 1152px) 1104px, 100vw"
+          />
+        </div>
+        <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+          A person-detection pipeline in the editor — simulated against a
+          recorded session before it ever touches a device.
+        </figcaption>
+      </figure>
       <div className="grid gap-x-8 gap-y-10 md:grid-cols-3">
         {features.map((feature) => (
           <div key={feature.title}>
