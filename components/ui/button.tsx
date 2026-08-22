@@ -21,6 +21,9 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         // Landing-only: the one brand-accent CTA (design.md usage budget).
         brand: "bg-brand-strong text-white hover:bg-brand-strong/90",
+        // Landing-only: signal green. Black text only - the green is far too
+        // light to carry white (1.2:1), while black clears 15:1 on it.
+        signal: "bg-brand-green text-black hover:bg-brand-green/90",
       },
       size: {
         default:

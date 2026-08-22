@@ -96,7 +96,7 @@ export function Quickstart() {
       <div className="mt-20 flex justify-center">
         <Button variant="outline" size="xl" asChild>
           <a href={docsUrl}>
-            See how it works
+            Explore Xorgate
             <ArrowRight data-icon="inline-end" />
           </a>
         </Button>

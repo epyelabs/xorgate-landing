@@ -42,7 +42,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-12 md:flex-row md:justify-between">
           <div className="flex max-w-xs flex-col gap-3">
             <div className="flex items-center gap-2">
-              <XorgateLogo className="h-5 w-auto text-brand-logo" />
+              <XorgateLogo className="h-5 w-auto text-brand" />
               <span className="text-base font-medium tracking-tight">
                 xorgate
               </span>

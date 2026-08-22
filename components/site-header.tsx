@@ -27,7 +27,7 @@ export function SiteHeader() {
               className="flex items-center"
               onClick={() => setOpen(false)}
             >
-              <XorgateLogo className="h-6 w-auto text-brand-logo" />
+              <XorgateLogo className="h-6 w-auto text-brand" />
             </Link>
 
             <nav className="ml-auto hidden items-center gap-8 lg:flex">
@@ -54,7 +54,7 @@ export function SiteHeader() {
 
             <div className="ml-auto flex items-center gap-1.5 lg:ml-10">
               <Button
-                variant="brand"
+                variant="signal"
                 className="h-9 rounded-full px-4 text-sm max-sm:h-8 max-sm:px-3 max-sm:text-xs"
                 asChild
               >

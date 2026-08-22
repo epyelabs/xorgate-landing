@@ -55,14 +55,14 @@ export function Workflows() {
       <div className="mb-12 flex flex-col gap-4 overflow-x-auto rounded-xl border bg-muted/40 p-6">
         {lanes.map((lane) => (
           <div key={lane.label} className="flex items-center gap-3">
-            <span className="w-20 shrink-0 text-sm font-medium tracking-widest text-muted-foreground uppercase">
+            <span className="w-20 shrink-0 text-sm font-medium tracking-widest text-brand-blue uppercase">
               {lane.label}
             </span>
             <div className="flex items-center gap-2">
               {lane.nodes.map((node, index) => (
                 <div key={node} className="flex items-center gap-2">
                   {index > 0 ? (
-                    <ArrowRight className="size-3.5 shrink-0 text-muted-foreground" />
+                    <ArrowRight className="size-3.5 shrink-0 text-brand-blue/60" />
                   ) : null}
                   <code className="rounded-lg border bg-background px-3 py-2 font-mono text-xs whitespace-nowrap">
                     {node}
