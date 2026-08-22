@@ -44,15 +44,19 @@ export function Workflows() {
           recorded session before it ever touches a device.
         </figcaption>
       </figure>
-      <div className="grid gap-x-8 gap-y-10 md:grid-cols-3">
+      {/* One bordered strip with internal dividers, deliberately distinct
+          from the card grid in the use-case teaser below. */}
+      <div className="grid divide-y divide-border overflow-hidden rounded-xl border bg-card md:grid-cols-3 md:divide-x md:divide-y-0">
         {features.map((feature) => (
-          <div key={feature.title}>
-            <feature.icon
-              className="mb-3 size-5 text-brand-strong"
-              strokeWidth={1.5}
-            />
+          <div key={feature.title} className="p-6 md:p-8">
+            <div className="mb-4 flex size-10 items-center justify-center rounded-lg border bg-muted/50">
+              <feature.icon
+                className="size-5 text-brand-strong"
+                strokeWidth={1.5}
+              />
+            </div>
             <h3 className="text-xl font-medium">{feature.title}</h3>
-            <p className="mt-1 text-base text-muted-foreground">
+            <p className="mt-2 text-base text-muted-foreground">
               {feature.body}
             </p>
           </div>
