@@ -26,9 +26,8 @@ export function HeroVideo() {
           phrases={["Sense the world.", "Stream it live.", "Make it think."]}
           className="text-[clamp(2rem,7vw,4.5rem)] font-medium tracking-tight text-white"
         />
-        <p className="mt-5 max-w-xl text-base text-neutral-200 md:text-lg">
-          Ready-made hardware, cellular streaming, and{" "}
-          <span className="whitespace-nowrap">no-code AI workflows.</span>
+        <p className="max-w-xxl mt-5 px-4 text-base text-neutral-200 md:text-lg">
+          Xorgate is an open-source platform for Physical AI and Edge IoT.
         </p>
         <div className="mt-8 flex w-full max-w-xs flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
           <Button variant="brand" size="xl" asChild>
@@ -43,7 +42,7 @@ export function HeroVideo() {
             className="border-white/40 bg-white/10 text-white backdrop-blur hover:bg-white/20 hover:text-white"
             asChild
           >
-            <Link href="/hardware">Order Daedalus Now</Link>
+            <Link href="/hardware">View Documentation</Link>
           </Button>
         </div>
       </div>
