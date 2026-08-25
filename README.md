@@ -33,7 +33,7 @@ GitHub Actions sync `out/` to S3 (CloudFront invalidation is manual):
 - publish a release -> `www.xorgate.io` (`.github/workflows/deploy-prod.yml`)
 
 Buckets, CloudFront, and DNS are managed outside this repo. The one-time IAM +
-GitHub setup is documented in `deploy-prod.yml`'s header
+GitHub setup is documented in `deploy-prod.yml`'s header.
 
 ## Conventions
 
