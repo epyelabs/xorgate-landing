@@ -1,9 +1,10 @@
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, CircuitBoard } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ScreenshotPlaceholder } from "@/components/screenshot-placeholder"
 import { Section, SectionHeading } from "@/components/section"
+import daedalusBoard from "@/public/daedalus-board.png"
 
 export function HardwareTeaser() {
   return (
@@ -25,10 +26,14 @@ export function HardwareTeaser() {
             <Badge variant="secondary">In development</Badge>
           </div>
         </div>
-        {/* Swap for the Daedalus 3D render when provided (content.md shot list #1). */}
-        <ScreenshotPlaceholder
-          icon={CircuitBoard}
-          label="Daedalus board render"
+        {/* Board CAD render (content.md shot list #1). Transparent PNG, so
+            it sits straight on the page ground with no frame. */}
+        <Image
+          src={daedalusBoard}
+          alt="The Daedalus carrier board: two camera modules, an IMU, a 40-pin header, a USB-C port, and a heatsinked Raspberry Pi CM5 behind"
+          sizes="(min-width: 768px) 552px, 100vw"
+          className="h-auto w-full"
+          priority={false}
         />
       </div>
     </Section>

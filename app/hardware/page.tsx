@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import {
   Antenna,
   ArrowRight,
@@ -17,6 +18,9 @@ import { ScreenshotPlaceholder } from "@/components/screenshot-placeholder"
 import { Section, SectionHeading } from "@/components/section"
 import { SpecTable } from "@/components/spec-table"
 import { contactEmail, docsUrl } from "@/lib/site"
+import daedalusBoard from "@/public/daedalus-board.png"
+import daedalusEnclosure from "@/public/daedalus-enclosure.png"
+import daedalusExplode from "@/public/daedalus-explode.png"
 
 export const metadata: Metadata = {
   title: "Hardware",
@@ -104,11 +108,14 @@ export default function HardwarePage() {
 
       <Reveal>
         <Section className="pt-0 md:pt-0">
-          {/* Swap for the Daedalus 3D render when provided (content.md shot list #1). */}
-          <ScreenshotPlaceholder
-            icon={CircuitBoard}
-            label="Daedalus board render"
-            className="aspect-[2/1]"
+          {/* Exploded CAD render (content.md shot list #1). Transparent PNG,
+              so it sits straight on the page ground with no frame. */}
+          <Image
+            src={daedalusExplode}
+            alt="Exploded view of the Daedalus dev kit: enclosure front, two camera modules, the carrier board, the Raspberry Pi CM5, and the rear cover"
+            sizes="(min-width: 960px) 896px, 100vw"
+            className="mx-auto h-auto w-full max-w-4xl"
+            priority
           />
         </Section>
       </Reveal>
@@ -145,9 +152,25 @@ export default function HardwarePage() {
             intro="The hardware behind Daedalus validated the whole stack in the field: two weeks on a vehicle dashboard with dual-camera streaming and telemetry over LTE, dropping out gracefully in dead zones and recovering on its own. For enterprise programs, we build custom carrier boards and bespoke sensor combinations on the same platform."
           />
           <div className="mb-12 grid gap-6 md:grid-cols-3">
-            {/* Swap for board + enclosure + dashboard photos (content.md shot list #2-4). */}
-            <ScreenshotPlaceholder icon={CircuitBoard} label="Carrier board" />
-            <ScreenshotPlaceholder icon={Box} label="Assembled enclosure" />
+            {/* Board + enclosure CAD renders (content.md shot list #2, #3):
+                transparent PNGs, framed like the remaining placeholder so the
+                row reads as one set. Dashboard photo (#4) still to come. */}
+            <div className="flex aspect-video items-center justify-center rounded-xl border bg-muted p-6">
+              <Image
+                src={daedalusBoard}
+                alt="The Daedalus carrier board: two camera modules, an IMU, a 40-pin header, a USB-C port, and a heatsinked Raspberry Pi CM5 behind"
+                sizes="(min-width: 768px) 352px, 100vw"
+                className="h-auto max-h-full w-auto max-w-full"
+              />
+            </div>
+            <div className="flex aspect-video items-center justify-center rounded-xl border bg-muted p-6">
+              <Image
+                src={daedalusEnclosure}
+                alt="The assembled Daedalus enclosure: a grey rectangular housing with two camera lenses on the front and a USB-C port on the side"
+                sizes="(min-width: 768px) 352px, 100vw"
+                className="h-auto max-h-full w-auto max-w-full"
+              />
+            </div>
             <ScreenshotPlaceholder icon={Camera} label="Dashboard deployment" />
           </div>
           <Button variant="outline" size="xl" asChild>
