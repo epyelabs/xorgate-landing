@@ -4,6 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 import { GithubIcon } from "@/components/social-icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { XorgateLogo } from "@/components/xorgate-logo"
@@ -15,12 +16,29 @@ import { consoleUrl, docsUrl, nav } from "@/lib/site"
 // accent.
 export function SiteHeader() {
   const [open, setOpen] = React.useState(false)
+  // Near-transparent while the bar floats over the hero so the wash shader
+  // shows through it; solid again once real content scrolls underneath.
+  const [scrolled, setScrolled] = React.useState(false)
+
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 80)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   return (
     // Card edges line up with the section content width (max-w-content + px-6).
     <header className="fixed inset-x-0 top-4 z-50">
       <div className="mx-auto w-full max-w-content px-6">
-        <div className="rounded-xl border bg-shell/90 shadow-sm backdrop-blur">
+        <div
+          className={cn(
+            "rounded-xl border shadow-sm transition-colors duration-300",
+            scrolled || open
+              ? "bg-shell/90 backdrop-blur"
+              : "bg-shell/30 backdrop-blur-[2px]"
+          )}
+        >
           <div className="flex h-14 items-center px-5">
             <Link
               href="/"
@@ -54,11 +72,13 @@ export function SiteHeader() {
 
             <div className="ml-auto flex items-center gap-1.5 lg:ml-12">
               <Button
-                variant="signal"
-                className="h-9 rounded-full px-4 text-sm max-sm:h-8 max-sm:px-3 max-sm:text-xs"
+                variant="outline"
+                className="h-9 px-4 text-sm max-sm:h-8 max-sm:px-3 max-sm:text-xs"
                 asChild
               >
-                <a href={docsUrl}>Get started</a>
+                <a target="_blank" href={consoleUrl}>
+                  Open Console
+                </a>
               </Button>
               {/* Placement only for now; wire the href once the org is public. */}
               <Button
