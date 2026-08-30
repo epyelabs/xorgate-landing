@@ -8,7 +8,7 @@ import daedalusBoard from "@/public/daedalus-board.png"
 
 export function HardwareTeaser() {
   return (
-    <Section className="border-t" accent="hatch-bl">
+    <Section surface="shell" accent="dots-tr">
       <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         <div>
           <SectionHeading

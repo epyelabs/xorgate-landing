@@ -3,7 +3,9 @@ import { ArrowRight, Mountain, Sprout, Truck } from "lucide-react"
 import type { LucideIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Section, SectionHeading } from "@/components/section"
+import { Section, SectionHeading, masks } from "@/components/section"
+import { LazyRippleGrid } from "@/components/three/lazy"
+import { cn } from "@/lib/utils"
 
 const cases: { icon: LucideIcon; title: string; body: string }[] = [
   {
@@ -25,7 +27,12 @@ const cases: { icon: LucideIcon; title: string; body: string }[] = [
 
 export function UseCaseTeaser() {
   return (
-    <Section className="border-t" accent="dots-bl">
+    <Section
+      ornament={
+        // Devices pinging in from the field: the dot accent, but live.
+        <LazyRippleGrid className={cn("absolute inset-0 -z-10", masks.bl)} />
+      }
+    >
       <SectionHeading title="What people build on Xorgate" />
       <div className="grid gap-4 md:grid-cols-3">
         {cases.map((useCase) => (

@@ -8,11 +8,7 @@ import { consoleUrl, contactEmail, docsUrl, siteTagline } from "@/lib/site"
 const columns = [
   {
     title: "Product",
-    links: [
-      { label: "Hardware", href: "/hardware" },
-      { label: "Use Cases", href: "/use-cases" },
-      { label: "Pricing", href: "/pricing" },
-    ],
+    links: [{ label: "Hardware", href: "/hardware" }],
   },
   {
     title: "Developers",
@@ -29,7 +25,6 @@ const columns = [
   {
     title: "Company",
     links: [
-      { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: `mailto:${contactEmail}`, external: true },
     ],

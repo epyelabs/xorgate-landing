@@ -1,6 +1,8 @@
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Section, SectionHeading } from "@/components/section"
+import { Section, SectionHeading, masks } from "@/components/section"
+import { LazyRippleGrid } from "@/components/three/lazy"
+import { cn } from "@/lib/utils"
 import { TerminalBlock } from "@/components/terminal-block"
 import { docsUrl } from "@/lib/site"
 
@@ -30,7 +32,13 @@ const steps: { title: string; body: string }[] = [
 
 export function Quickstart() {
   return (
-    <Section accent="dots-tr">
+    <Section
+      surface="shell"
+      ornament={
+        // Devices pinging in: the dot accent, but live, behind the terminal.
+        <LazyRippleGrid className={cn("absolute inset-0 -z-10", masks.tr)} />
+      }
+    >
       <SectionHeading
         title="From bench to edge in minutes"
         intro="No firmware to write, no infrastructure to stand up. One command on the device and the platform takes it from there."

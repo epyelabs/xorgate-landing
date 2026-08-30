@@ -52,12 +52,13 @@
    visual sync with the console. The brand-* tokens are landing-only: the one
    accent (design system: plans/xorgate-landing-page/design.md). */
 :root {
-  /* Two-surface scheme: the cream (from #FDF5E6, chroma eased slightly)
-     paints the shell (navbar + footer), the main content sits on a much
-     lighter warm white, and cards stay pure white. Neutrals are warmed to
-     the same hue so they don't read gray on the warm grounds. */
-  --shell: oklch(0.972 0.014 85);
-  --background: oklch(0.985 0.007 85);
+  /* Two-surface scheme: a near-white page ground with only a trace of
+     warmth, a slightly deeper shell (navbar, footer, alternate sections),
+     and pure-white cards. Neutrals carry the same faint hue so they don't
+     read blue-gray against it. Toned down from the original cream
+     (#FDF5E6) on 2026-08-30. */
+  --shell: oklch(0.975 0.004 85);
+  --background: oklch(0.994 0.002 85);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
@@ -65,15 +66,15 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.945 0.012 85);
+  --secondary: oklch(0.955 0.004 85);
   --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.945 0.012 85);
-  --muted-foreground: oklch(0.5 0.01 85);
-  --accent: oklch(0.945 0.012 85);
+  --muted: oklch(0.955 0.004 85);
+  --muted-foreground: oklch(0.5 0.005 85);
+  --accent: oklch(0.955 0.004 85);
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.902 0.014 85);
-  --input: oklch(0.902 0.014 85);
+  --border: oklch(0.915 0.005 85);
+  --input: oklch(0.915 0.005 85);
   --ring: oklch(0.708 0 0);
   --radius: 0.625rem;
   /* Brand orange #ff3a00: fills and glows only; never small text on white.
@@ -82,12 +83,12 @@
   /* Deepened orange-red for text-bearing uses on light backgrounds (AA). */
   --brand-strong: oklch(0.55 0.21 35);
   /* Barely-tinted wash, at most one section per page. Warmer/pinker than the
-     cream background so the CTA band still reads as its own surface. */
-  --brand-wash: oklch(0.955 0.025 45);
+     page ground so a washed section still reads as its own surface. */
+  --brand-wash: oklch(0.965 0.018 45);
   /* Terminal green. 14:1 on the near-black code surface, but only 1.4:1 on
      white - dark surfaces and fills only, never text on a light ground. */
   --brand-green: #00ff3a;
-  /* Workflow blue: the data-pipeline accent. 6.3:1 on the cream ground. */
+  /* Workflow blue: the data-pipeline accent. 6.3:1 on the page ground. */
   --brand-blue: #0046ff;
 }
 

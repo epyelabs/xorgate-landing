@@ -35,7 +35,9 @@ const patterns = {
   grid: "[background-image:repeating-linear-gradient(to_right,color-mix(in_oklab,var(--muted-foreground)_4%,transparent)_0_1px,transparent_1px_16px),repeating-linear-gradient(to_bottom,color-mix(in_oklab,var(--muted-foreground)_4%,transparent)_0_1px,transparent_1px_16px)]",
 }
 
-const masks = {
+// Exported alongside AccentField so animated ornaments can dissolve behind
+// the same corners the static marks do.
+export const masks = {
   tr: "[mask-image:radial-gradient(42rem_28rem_at_100%_0%,black,transparent_70%)]",
   bl: "[mask-image:radial-gradient(42rem_28rem_at_0%_100%,black,transparent_70%)]",
   br: "[mask-image:radial-gradient(38rem_20rem_at_100%_100%,black,transparent_72%)]",
@@ -64,22 +66,36 @@ export function AccentField({ variant }: { variant: Accent }) {
   )
 }
 
+// Sections alternate between the page ground and the slightly deeper shell
+// cream, so adjacent sections part on a change of surface rather than a
+// hairline. `ornament` is a slot for the animated dot fields; it renders
+// under the content in place of (or alongside) the static accent.
 export function Section({
   accent,
+  surface = "page",
+  ornament,
   className,
   children,
   ...props
-}: React.ComponentProps<"section"> & { accent?: Accent }) {
+}: React.ComponentProps<"section"> & {
+  accent?: Accent
+  surface?: "page" | "shell"
+  ornament?: React.ReactNode
+}) {
   return (
     <section
       className={cn(
-        "relative isolate pt-16 pb-24 md:pt-20 md:pb-32",
+        "relative isolate overflow-hidden py-24 md:py-32",
+        surface === "shell" && "bg-shell",
         className
       )}
       {...props}
     >
       {accent ? <AccentField variant={accent} /> : null}
-      <div className="mx-auto w-full max-w-content px-6">{children}</div>
+      {ornament}
+      <div className="relative mx-auto w-full max-w-content px-6">
+        {children}
+      </div>
     </section>
   )
 }
