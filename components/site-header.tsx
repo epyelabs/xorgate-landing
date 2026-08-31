@@ -73,7 +73,7 @@ export function SiteHeader() {
             <div className="ml-auto flex items-center gap-1.5 lg:ml-12">
               <Button
                 variant="outline"
-                className="h-9 px-4 text-sm max-sm:h-8 max-sm:px-3 max-sm:text-xs"
+                className="h-9 px-4 text-sm shadow-sm max-sm:h-8 max-sm:px-3 max-sm:text-xs"
                 asChild
               >
                 <a target="_blank" href={consoleUrl}>

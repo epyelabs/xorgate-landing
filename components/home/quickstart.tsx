@@ -6,27 +6,30 @@ import { cn } from "@/lib/utils"
 import { TerminalBlock } from "@/components/terminal-block"
 import { docsUrl } from "@/lib/site"
 
-// The developer journey, told simply: one terminal showing the single
-// command that onboards a device, then four numbered steps in a row. Static
-// on purpose; the copy is a placeholder until the final content lands, so
-// there is nothing here worth an interactive panel yet.
+// The developer journey, told simply: four numbered steps in a row, then the
+// provisioning terminal they lead to — the strongest real product moment we
+// have (content.md). The section heading closes rather than opens (user
+// decision): the steps carry the entry, the h2 lands as the summary the CTA
+// answers. Static on purpose — no interactive panel earns its place here.
+// Every claim below is on the "shipping today" list in the plan's guardrails;
+// the SDKs and dev kits carry their "in development" label.
 
 const steps: { title: string; body: string }[] = [
   {
-    title: "Get a device",
-    body: "A Raspberry Pi 5 with a camera is enough to start. Dev kits are on the way.",
+    title: "Bring a device",
+    body: "A Raspberry Pi 4/5 and a CSI camera are enough to start. The agent runs on Linux and gates off whatever the board does not have.",
   },
   {
     title: "Claim it from the console",
-    body: "Register the device, copy the one-time install command, run it once.",
+    body: "Register the device into a workspace and the console hands back a one-time code and a cli command to copy and paste.",
   },
   {
     title: "Watch it live",
-    body: "Live video and telemetry show up in the console seconds after boot.",
+    body: "Telemetry arrives GPS, IMU, cellular, and system. Alongside live WebRTC video from each camera, seconds after the agent starts.",
   },
   {
     title: "Build on the API",
-    body: "Everything the console does rides the REST API. Attach workflows, pull data, ship.",
+    body: "Everything the console does rides the REST API: history, replay, media sessions, no-code workflows. SDKs are also available",
   },
 ]
 
@@ -39,26 +42,12 @@ export function Quickstart() {
         <LazyRippleGrid className={cn("absolute inset-0 -z-10", masks.tr)} />
       }
     >
-      <SectionHeading
-        title="From bench to edge in minutes"
-        intro="No firmware to write, no infrastructure to stand up. One command on the device and the platform takes it from there."
-      />
-
-      <TerminalBlock
-        className="mx-auto max-w-3xl"
-        lines={[
-          "# Paste the command from the console:",
-          "$ curl -s https://api.xorgate.io/get/K7QF4M2P | sudo bash",
-          "  Claiming device........ done",
-          "  Installing agent....... done",
-          "  Starting streams....... done",
-          "# Device online.",
-        ]}
-      />
-
-      <ol className="mt-12 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      <ol className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((step, index) => (
-          <li key={step.title} className="flex flex-col gap-3">
+          <li
+            key={step.title}
+            className="flex flex-col gap-3 rounded-xl border bg-card p-6"
+          >
             <span className="font-mono text-sm text-brand-strong">
               {String(index + 1).padStart(2, "0")}
             </span>
@@ -68,10 +57,10 @@ export function Quickstart() {
         ))}
       </ol>
 
-      <div className="mt-16 flex justify-center">
+      <div className="mt-12 flex justify-center">
         <Button variant="outline" size="xl" asChild>
-          <a href={docsUrl}>
-            Read the docs
+          <a href={`${docsUrl}/getting-started/quickstart`}>
+            Read the quickstart
             <ArrowRight data-icon="inline-end" />
           </a>
         </Button>
