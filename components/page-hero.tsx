@@ -20,7 +20,7 @@ export function PageHero({
   accent?: Accent
 }) {
   return (
-    <section className={cn("relative isolate pt-24 pb-16 md:pt-32", className)}>
+    <section className={cn("relative isolate pt-24 pb-4 md:pt-32", className)}>
       {accent ? <AccentField variant={accent} /> : null}
       <div className="mx-auto flex w-full max-w-content flex-col gap-4 px-6">
         {eyebrow ? (

@@ -27,7 +27,7 @@ export function Workflows() {
     <Section accent="hatch-bl">
       <SectionHeading
         title="Your data is already here. Now make it think."
-        intro="Video, GPS, motion, signal. It all lands in Xorgate. Point a no-code workflow at it and turn raw streams into detections, alerts, and answers."
+        intro="Video, GPS, motion, signal. It all lands in Xorgate. Point a no-code workflow at it and turn raw streams or recorded data into detections, alerts, and answers."
       />
       {/* Real editor screenshot (content.md shot list #5): a person-detection
           pipeline on the canvas with its simulation trace alongside. */}
@@ -40,7 +40,7 @@ export function Workflows() {
           />
         </div>
         <figcaption className="mt-3 text-center text-sm text-muted-foreground">
-          A person-detection pipeline in the editor — simulated against a
+          A person-detection pipeline in the editor, simulated against a
           recorded session before it ever touches a device.
         </figcaption>
       </figure>

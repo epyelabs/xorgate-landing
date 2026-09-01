@@ -16,7 +16,7 @@ export function Hero() {
       <LazyHeroWash />
       <div className="mx-auto flex w-full max-w-content flex-col items-start gap-6 px-6">
         <h1 className="max-w-4xl text-5xl font-medium tracking-tight text-balance md:text-7xl">
-          Sense the world. Stream it live. Make it think.
+          Sense the world. Visualize it live. Make it think.
         </h1>
         <p className="max-w-2xl text-lg text-muted-foreground md:text-xl">
           Xorgate is an open-source platform for Physical AI and Edge IoT: a
