@@ -91,7 +91,7 @@ export default function HardwarePage() {
         accent="dots-tr"
         eyebrow="Built for developers. Ready for deployment"
         title="Daedalus Dev Kit"
-        intro="This kit gives you a Raspberry Pi CM5 platform that's easy to prototype with, easy to extend, and designed with real-world deployment in mind."
+        intro="The kit gives you a Raspberry Pi CM5 platform that's easy to prototype with, easy to extend, and designed with real-world deployment in mind."
       >
         <div className="mt-2 flex flex-wrap items-center gap-3">
           <Button variant="brand" size="xl" asChild>

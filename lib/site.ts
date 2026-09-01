@@ -18,5 +18,5 @@ export const contactEmail = "hello@xorgate.io"
 export const nav = [
   { label: "Hardware", href: "/hardware" },
   { label: "FAQ", href: "/faq" },
-  { label: "Developers", href: docsUrl, external: true },
+  { label: "Documentation", href: docsUrl, external: true },
 ] as const

@@ -24,7 +24,7 @@ const steps: { title: string; body: string }[] = [
     body: "Register the device into a workspace and the console hands back a one-time code and a cli command to copy and paste.",
   },
   {
-    title: "Watch it live",
+    title: "Stream it live",
     body: "Telemetry arrives GPS, IMU, cellular, and system. Alongside live WebRTC video from each camera, seconds after the agent starts.",
   },
   {
