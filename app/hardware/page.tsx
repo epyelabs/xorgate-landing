@@ -14,11 +14,11 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { PageHero } from "@/components/page-hero"
 import { Reveal } from "@/components/reveal"
-import { ScreenshotPlaceholder } from "@/components/screenshot-placeholder"
 import { Section, SectionHeading } from "@/components/section"
 import { SpecTable } from "@/components/spec-table"
 import { contactEmail, docsUrl } from "@/lib/site"
 import daedalusBoard from "@/public/daedalus-board.png"
+import daedalusDashboard from "@/public/daedalus-dashboard.png"
 import daedalusEnclosure from "@/public/daedalus-enclosure.png"
 import daedalusExplode from "@/public/daedalus-explode.png"
 
@@ -152,9 +152,9 @@ export default function HardwarePage() {
             intro="The hardware behind Daedalus validated the whole stack in the field: two weeks on a vehicle dashboard with dual-camera streaming and telemetry over LTE, dropping out gracefully in dead zones and recovering on its own. For enterprise programs, we build custom carrier boards and bespoke sensor combinations on the same platform."
           />
           <div className="mb-12 grid gap-6 md:grid-cols-3">
-            {/* Board + enclosure CAD renders (content.md shot list #2, #3):
-                transparent PNGs, framed like the remaining placeholder so the
-                row reads as one set. Dashboard photo (#4) still to come. */}
+            {/* Board, enclosure, and dashboard-mount CAD renders (content.md
+                shot list #2, #3, #4): transparent PNGs, framed identically so
+                the row reads as one set. */}
             <div className="flex aspect-video items-center justify-center rounded-xl border bg-muted p-6">
               <Image
                 src={daedalusBoard}
@@ -171,7 +171,14 @@ export default function HardwarePage() {
                 className="h-auto max-h-full w-auto max-w-full"
               />
             </div>
-            <ScreenshotPlaceholder icon={Camera} label="Dashboard deployment" />
+            <div className="flex aspect-video items-center justify-center rounded-xl border bg-muted p-6">
+              <Image
+                src={daedalusDashboard}
+                alt="The Daedalus enclosure on a suction-cup dashboard mount, its two camera lenses aimed forward through the windshield"
+                sizes="(min-width: 768px) 352px, 100vw"
+                className="h-auto max-h-full w-auto max-w-full"
+              />
+            </div>
           </div>
           <Button variant="outline" size="xl" asChild>
             <a
