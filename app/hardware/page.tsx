@@ -16,11 +16,11 @@ import { PageHero } from "@/components/page-hero"
 import { Reveal } from "@/components/reveal"
 import { Section, SectionHeading } from "@/components/section"
 import { SpecTable } from "@/components/spec-table"
+import { LazyDaedalusModel } from "@/components/three/lazy"
 import { contactEmail, docsUrl } from "@/lib/site"
 import daedalusBoard from "@/public/daedalus-board.png"
 import daedalusDashboard from "@/public/daedalus-dashboard.png"
 import daedalusEnclosure from "@/public/daedalus-enclosure.png"
-import daedalusExplode from "@/public/daedalus-explode.png"
 
 export const metadata: Metadata = {
   title: "Hardware",
@@ -37,7 +37,7 @@ const kitContents: { icon: LucideIcon; label: string; detail: string }[] = [
   {
     icon: Camera,
     label: "Two cameras",
-    detail: "Stereo arrangement, 75 mm baseline",
+    detail: "IMX290 Stereo arrangement, 75 mm baseline",
   },
   {
     icon: Antenna,
@@ -46,8 +46,8 @@ const kitContents: { icon: LucideIcon; label: string; detail: string }[] = [
   },
   {
     icon: Cpu,
-    label: "Raspberry Pi CM5",
-    detail: "The compute module, ready to seat",
+    label: "Compute Module",
+    detail: "A Raspberry Pi CM5, ready to seat",
   },
   {
     icon: Box,
@@ -89,9 +89,9 @@ export default function HardwarePage() {
     <>
       <PageHero
         accent="dots-tr"
-        eyebrow="Hardware"
+        eyebrow="Built for developers. Ready for deployment"
         title="Daedalus Dev Kit"
-        intro="A developer-leaning carrier board for the Raspberry Pi CM5, packaged with everything you need to unbox, provision, and stream. Easy to extend, easy to service, and friendly to the standard Raspberry Pi ecosystem."
+        intro="This kit gives you a Raspberry Pi CM5 platform that's easy to prototype with, easy to extend, and designed with real-world deployment in mind."
       >
         <div className="mt-2 flex flex-wrap items-center gap-3">
           <Button variant="brand" size="xl" asChild>
@@ -102,28 +102,39 @@ export default function HardwarePage() {
               <ArrowRight data-icon="inline-end" />
             </a>
           </Button>
-          <Badge variant="secondary">In development</Badge>
         </div>
       </PageHero>
 
       <Reveal>
         <Section className="pt-0 md:pt-0">
-          {/* Exploded CAD render (content.md shot list #1). Transparent PNG,
-              so it sits straight on the page ground with no frame. */}
-          <Image
-            src={daedalusExplode}
-            alt="Exploded view of the Daedalus dev kit: enclosure front, two camera modules, the carrier board, the Raspberry Pi CM5, and the rear cover"
-            sizes="(min-width: 960px) 896px, 100vw"
-            className="mx-auto h-auto w-full max-w-4xl"
-            priority
+          {/* Kit CAD model (content.md shot list #1) shaded from the STL:
+              exploded to show what is in the box, assembled on request. It
+              rests further round than the teaser board, because the stack
+              only separates on screen once the kit is turned off-axis. */}
+          <LazyDaedalusModel
+            views={[
+              {
+                id: "exploded",
+                label: "See What's Inside",
+                src: "/Daedalus-Exploded.stl",
+              },
+              {
+                id: "enclosed",
+                label: "See it put together",
+                src: "/Daedalus-Enclosed.stl",
+              },
+            ]}
+            label="The Daedalus dev kit: the enclosure front and rear, two camera modules, the carrier board, and the Raspberry Pi CM5, shown apart or assembled"
+            restYaw={-1.05}
+            className="mx-auto aspect-[16/9] w-full max-w-4xl"
           />
         </Section>
       </Reveal>
 
       <Reveal>
-        <Section className="border-t" accent="hatch-bl">
+        <Section accent="hatch-bl">
           <SectionHeading
-            eyebrow="In the box"
+            eyebrow="Inside the kit"
             title="Unbox, provision, stream"
             intro="One kit, no sourcing. Seat the CM5, mount the cameras, run the install command, and the device is live in your fleet."
           />
@@ -145,11 +156,11 @@ export default function HardwarePage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t" accent="dots-tr">
+        <Section accent="dots-tr">
           <SectionHeading
             eyebrow="Enterprise"
             title="Proven in the field, customized for your program"
-            intro="The hardware behind Daedalus validated the whole stack in the field: two weeks on a vehicle dashboard with dual-camera streaming and telemetry over LTE, dropping out gracefully in dead zones and recovering on its own. For enterprise programs, we build custom carrier boards and bespoke sensor combinations on the same platform."
+            intro="The hardware behind Daedalus validated the whole stack in the field: For enterprise programs, we build custom carrier boards and bespoke sensor combinations on the same platform."
           />
           <div className="mb-12 grid gap-6 md:grid-cols-3">
             {/* Board, enclosure, and dashboard-mount CAD renders (content.md
@@ -191,8 +202,11 @@ export default function HardwarePage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t" accent="hatch-bl">
-          <SectionHeading eyebrow="Specs" title="Daedalus 1.0 at a glance" />
+        <Section accent="hatch-bl">
+          <SectionHeading
+            eyebrow="Specifications"
+            title="Daedalus CM5 Carrier Board"
+          />
           <SpecTable columns={["Daedalus 1.0"]} rows={specRows} />
           <p className="mt-4 text-sm text-muted-foreground">
             Daedalus specifications are preliminary and may change before
@@ -202,7 +216,7 @@ export default function HardwarePage() {
       </Reveal>
 
       <Reveal>
-        <Section className="border-t" accent="dots-tr">
+        <Section accent="dots-tr">
           <SectionHeading
             eyebrow="Roadmap"
             title="More boards on the way"

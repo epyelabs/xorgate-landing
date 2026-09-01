@@ -13,3 +13,11 @@ export const LazyRippleGrid = dynamic(
     })),
   { ssr: false }
 )
+
+export const LazyDaedalusModel = dynamic(
+  () =>
+    import("@/components/three/daedalus-model").then((m) => ({
+      default: m.DaedalusModel,
+    })),
+  { ssr: false }
+)
