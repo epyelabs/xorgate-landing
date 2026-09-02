@@ -297,8 +297,33 @@ const sections: LegalSection[] = [
           </li>
           <li>
             <strong>Account information</strong> is kept for as long as your
-            account exists. Deleting a device, workspace or organization removes
-            the data scoped to it.
+            account exists, and you can close your account yourself from the
+            console. Doing so removes your sign-in credential, your profile and
+            picture, your membership in every organization and your live-video
+            access. Organizations you merely belonged to are not affected, and
+            device enrollment records you created are kept with the creator
+            cleared.
+          </li>
+          <li>
+            <strong>Deleting a device, workspace or organization</strong>{" "}
+            removes the data scoped to it: device identities and certificates,
+            live-video channels, recorded video segments and telemetry uploads
+            in storage, telemetry history, workflow attachments and runs, and
+            for an organization also its API keys, session tokens, memberships,
+            workflow templates, connector credentials and logos. These deletions
+            take effect immediately and cannot be reversed. Where a device has a
+            very large upload history the storage clean-up may finish through
+            the retention rules above rather than at the moment of deletion.
+          </li>
+          <li>
+            <strong>Deletion records.</strong> When an account, organization or
+            device is deleted we keep a minimal record that the deletion
+            happened: an internal identifier and the time, and for an
+            organization or device the identifiers of what it belonged to and
+            item counts. It holds no name, email address or other profile
+            information. We keep it so a closed account cannot be silently
+            re-created from a sign-in session that has not yet expired, and so
+            that storage clean-up can be verified.
           </li>
         </ul>
         <p>
@@ -335,9 +360,20 @@ const sections: LegalSection[] = [
           <li>
             Revoke your own live-video access and revoke API keys at any time.
           </li>
+          <li>
+            Leave an organization, and as an owner, make another member an owner
+            or delete the organization outright.
+          </li>
+          <li>
+            Close your account from the console. If you are the only owner of an
+            organization you must first make someone else an owner or delete the
+            organization, so that no organization is left without an owner.
+          </li>
         </ul>
         <p>
-          To close your account entirely, or to make any other request, email{" "}
+          To obtain an export of your data, ask about information that a
+          deletion does not remove (see Section 8), or make any other request,
+          email{" "}
           <a href={`mailto:${LEGAL.contactEmail}`}>{LEGAL.contactEmail}</a> from
           the address on the account. We will verify the request and respond
           within the time required by applicable law. If you are a member of an

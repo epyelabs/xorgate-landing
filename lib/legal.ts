@@ -6,6 +6,6 @@ export const LEGAL = {
   product: "Xorgate",
   contactEmail: "admin@xorgate.io",
   site: "https://www.xorgate.io",
-  effectiveDate: "August 28, 2026",
+  effectiveDate: "September 2, 2026",
   region: "AWS us-east-1 (N. Virginia, United States)",
 } as const
