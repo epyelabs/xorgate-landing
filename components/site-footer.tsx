@@ -29,6 +29,13 @@ const columns = [
       { label: "Contact", href: `mailto:${contactEmail}`, external: true },
     ],
   },
+  {
+    title: "Legal",
+    links: [
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Privacy Policy", href: "/privacy" },
+    ],
+  },
 ]
 
 export function SiteFooter() {
@@ -41,7 +48,7 @@ export function SiteFooter() {
             <XorgateWordmark className="h-7 w-auto text-brand" />
             <p className="text-sm text-muted-foreground">{siteTagline}</p>
           </div>
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
             {columns.map((column) => (
               <div key={column.title} className="flex flex-col gap-3">
                 <p className="text-sm font-medium">{column.title}</p>
