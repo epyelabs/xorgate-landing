@@ -14,8 +14,8 @@ export function CtaBand() {
           Start building today
         </h2>
         <p className="max-w-xl text-lg text-balance text-muted-foreground">
-          Bring a Raspberry Pi 5 and a camera; the platform handles the rest.
-          Dev kits are on the way.
+          Bring a Raspberry Pi 4/5 and a camera, run one install command, and it
+          joins your fleet with live telemetry, video, and workflows.
         </p>
         <div className="mt-3 flex w-full max-w-xs flex-col items-stretch gap-3 sm:w-auto sm:max-w-none sm:flex-row sm:items-center">
           <Button variant="brand" size="xl" asChild>

@@ -12,7 +12,7 @@ const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" })
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} - ${siteTagline}`,
+    default: `${siteName} | ${siteTagline}`,
     template: `%s | ${siteName}`,
   },
   description: siteDescription,

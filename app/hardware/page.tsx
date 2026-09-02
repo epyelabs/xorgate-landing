@@ -158,52 +158,6 @@ export default function HardwarePage() {
       <Reveal>
         <Section accent="dots-tr">
           <SectionHeading
-            eyebrow="Enterprise"
-            title="Proven in the field, customized for your program"
-            intro="The hardware behind Daedalus validated the whole stack in the field: For enterprise programs, we build custom carrier boards and bespoke sensor combinations on the same platform."
-          />
-          <div className="mb-12 grid gap-6 md:grid-cols-3">
-            {/* Board, enclosure, and dashboard-mount CAD renders (content.md
-                shot list #2, #3, #4): transparent PNGs, framed identically so
-                the row reads as one set. */}
-            <div className="flex aspect-video items-center justify-center rounded-xl border bg-muted p-6">
-              <Image
-                src={daedalusBoard}
-                alt="The Daedalus carrier board: two camera modules, an IMU, a 40-pin header, a USB-C port, and a heatsinked Raspberry Pi CM5 behind"
-                sizes="(min-width: 768px) 352px, 100vw"
-                className="h-auto max-h-full w-auto max-w-full"
-              />
-            </div>
-            <div className="flex aspect-video items-center justify-center rounded-xl border bg-muted p-6">
-              <Image
-                src={daedalusEnclosure}
-                alt="The assembled Daedalus enclosure: a grey rectangular housing with two camera lenses on the front and a USB-C port on the side"
-                sizes="(min-width: 768px) 352px, 100vw"
-                className="h-auto max-h-full w-auto max-w-full"
-              />
-            </div>
-            <div className="flex aspect-video items-center justify-center rounded-xl border bg-muted p-6">
-              <Image
-                src={daedalusDashboard}
-                alt="The Daedalus enclosure on a suction-cup dashboard mount, its two camera lenses aimed forward through the windshield"
-                sizes="(min-width: 768px) 352px, 100vw"
-                className="h-auto max-h-full w-auto max-w-full"
-              />
-            </div>
-          </div>
-          <Button variant="outline" size="xl" asChild>
-            <a
-              href={`mailto:${contactEmail}?subject=Enterprise%20hardware%20inquiry`}
-            >
-              Talk to us about a custom build
-            </a>
-          </Button>
-        </Section>
-      </Reveal>
-
-      <Reveal>
-        <Section accent="hatch-bl">
-          <SectionHeading
             eyebrow="Specifications"
             title="Daedalus CM5 Carrier Board"
           />
@@ -212,6 +166,24 @@ export default function HardwarePage() {
             Daedalus specifications are preliminary and may change before
             release.
           </p>
+        </Section>
+      </Reveal>
+
+      <Reveal>
+        <Section accent="hatch-bl">
+          <SectionHeading
+            eyebrow="Enterprise"
+            title="Proven in the field, customized for your program"
+            intro="The hardware behind Daedalus validated the whole stack in the field: For enterprise programs, we build custom carrier boards and bespoke sensor combinations on the same platform."
+          />
+
+          <Button variant="outline" size="xl" asChild>
+            <a
+              href={`mailto:${contactEmail}?subject=Enterprise%20hardware%20inquiry`}
+            >
+              Talk to us about a custom build
+            </a>
+          </Button>
         </Section>
       </Reveal>
 
