@@ -53,6 +53,16 @@ const sections: LegalSection[] = [
           by the people you admit to it.
         </p>
         <p>
+          An organization must always have at least one owner. Owners may make
+          other members owners, and any member may leave an organization. Owners
+          may delete the organization; owners and admins may delete workspaces
+          and devices. Deleting any of these is immediate and permanent and
+          removes the Customer Data scoped to it (Section 4). You may close your
+          own account at any time, but must first hand over or delete any
+          organization you are the only owner of. Section 11 describes the
+          effect of these deletions.
+        </p>
+        <p>
           You are responsible for safeguarding your password, API keys, session
           tokens and device certificates, and for all activity that occurs under
           them. Tell us promptly at {LEGAL.contactEmail} if you believe a
@@ -119,8 +129,15 @@ const sections: LegalSection[] = [
         </p>
         <p>
           You can export Customer Data through the API and delete it by deleting
-          the device, session, workspace or organization it belongs to. Recorded
-          video is retained for a fixed period after upload and then deleted
+          the device, session, workspace or organization it belongs to. Deleting
+          a device removes its identity, live-video channels, telemetry history
+          and stored recordings; deleting a workspace or organization does the
+          same for every device in it, and an organization deletion also removes
+          its API keys, memberships, workflow templates and connector
+          credentials. Where a device has a very large upload history, stored
+          objects that could not be removed at the moment of deletion are
+          removed by the retention rules instead. Recorded video is in any case
+          retained for a fixed period after upload and then deleted
           automatically; the Privacy Policy describes current retention periods.
           Retention and storage limits are not guaranteed service levels and may
           change with reasonable notice.
@@ -279,9 +296,17 @@ const sections: LegalSection[] = [
     body: (
       <>
         <p>
-          You may stop using the Services at any time and may delete your
-          organizations, workspaces and devices from the console or API. To
-          close your account, email {LEGAL.contactEmail}.
+          You may stop using the Services at any time. From the console or API
+          you can delete your organizations, workspaces and devices, leave an
+          organization, and close your own account (Section 2). These deletions
+          are immediate and permanent. Closing your account removes your sign-in
+          credential, profile and memberships; it does not delete organizations
+          you belonged to, and you must first hand over or delete any
+          organization you are the only owner of. Deleting an organization
+          removes everything in it as described in Section 4, and any device
+          agent still running loses its connection to the platform and must be
+          re-enrolled. If you need help with a deletion, email{" "}
+          {LEGAL.contactEmail}.
         </p>
         <p>
           We may suspend or terminate your access, with notice where
