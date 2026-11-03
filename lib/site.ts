@@ -14,6 +14,7 @@ export const consoleUrl =
 export const docsUrl =
   process.env.NEXT_PUBLIC_DOCS_URL ?? "https://docs.xorgate.io"
 export const contactEmail = "hello@xorgate.io"
+export const githubUrl = "https://github.com/epyelabs/xorgate"
 
 export const nav = [
   { label: "Hardware", href: "/hardware" },

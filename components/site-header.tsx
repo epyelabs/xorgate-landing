@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { GithubIcon } from "@/components/social-icons"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { XorgateLogo } from "@/components/xorgate-logo"
-import { consoleUrl, docsUrl, nav } from "@/lib/site"
+import { consoleUrl, githubUrl, nav } from "@/lib/site"
 
 // Floating-card navbar (stereolabs-style): a single rounded bar inset from
 // the viewport edges, fixed so it floats over the hero video. Sentence-case
@@ -80,14 +80,16 @@ export function SiteHeader() {
                   Open Console
                 </a>
               </Button>
-              {/* Placement only for now; wire the href once the org is public. */}
               <Button
                 variant="ghost"
                 size="icon-lg"
                 aria-label="GitHub"
                 className="hidden md:inline-flex"
+                asChild
               >
-                <GithubIcon className="size-4.5" />
+                <a target="_blank" rel="noreferrer" href={githubUrl}>
+                  <GithubIcon className="size-4.5" />
+                </a>
               </Button>
               <div className="max-[359px]:hidden">
                 <ThemeToggle />
@@ -134,6 +136,16 @@ export function SiteHeader() {
                     className="block py-2 text-base text-foreground/80 hover:text-foreground"
                   >
                     Console
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block py-2 text-base text-foreground/80 hover:text-foreground"
+                  >
+                    GitHub
                   </a>
                 </li>
               </ul>
